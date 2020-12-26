@@ -9,8 +9,11 @@ import { GradesComponent } from './grade-levels/grades/grades.component';
 import { LevelsComponent } from './grade-levels/levels/levels.component';
 import { BatchesComponent } from './batches/batches.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: '/dashboard'},
+  {path: 'dashboard', component:DashboardComponent},
   {path: 'users', component:UsersComponent},
   {path: 'organization', component:OrganizationComponent},
   {path: 'courses', component:CoursesComponent},

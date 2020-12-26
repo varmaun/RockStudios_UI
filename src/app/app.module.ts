@@ -13,6 +13,10 @@ import { GradesComponent } from './grade-levels/grades/grades.component';
 import { LevelsComponent } from './grade-levels/levels/levels.component';
 import { BatchesComponent } from './batches/batches.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { PaymentsComponent } from './payments/payments.component';
     GradesComponent,
     LevelsComponent,
     BatchesComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    HeaderComponent,
+    FooterComponent,
+    SideBarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
