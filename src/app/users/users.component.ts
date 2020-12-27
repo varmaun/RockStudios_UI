@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-users',
@@ -6,10 +6,63 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
-  constructor() { }
+ currentPage=1;
+ page: number;
+ count: number; 
+ tableSize: number;
+// tableSizes = [3, 6, 9, 12];
+userData:any;
+  constructor() {
+    this.userData=[{
+      "firstName": "Rack",
+      "lastName": "Jackon",
+      "gender": "man",
+      "age": 24,
+      "streetAddress": "126",
+      "city": "San Jone",
+      "state": "CA",
+      "postalCode": "394221"
+      },
+      {
+        "firstName": "Varma",
+        "lastName": "U",
+        "gender": "man",
+        "age": 24,
+        "streetAddress": "126",
+        "city": "San Jone",
+        "state": "CA",
+        "postalCode": "394221"
+      },
+      {
+          "firstName": "Ashok",
+          "lastName": "Varma",
+          "gender": "man",
+          "age": 24,
+          "streetAddress": "126",
+          "city": "San Jone",
+          "state": "CA",
+          "postalCode": "394221"
+       },
+       {
+            "firstName": "Jay",
+            "lastName": "Sankar",
+            "gender": "man",
+            "age": 24,
+            "streetAddress": "126",
+            "city": "San Jone",
+            "state": "CA",
+            "postalCode": "394221"
+        }
+    ];
+    this.page=1;
+    this.tableSize=5;
+    this.count=0;
+   }
 
   ngOnInit(): void {
   }
-
+ 
+  pageChanged(event: any): void {
+    this.page = event.page;
+  }
 }
