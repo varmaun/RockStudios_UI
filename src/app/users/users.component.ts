@@ -9,7 +9,7 @@ export class UsersComponent implements OnInit {
  currentPage=1;
  page: number;
  count: number; 
- tableSize: number;
+ pageSize: number;
 // tableSizes = [3, 6, 9, 12];
 userData:any;
   constructor() {
@@ -55,7 +55,7 @@ userData:any;
         }
     ];
     this.page=1;
-    this.tableSize=5;
+    this.pageSize=2;
     this.count=0;
    }
 
