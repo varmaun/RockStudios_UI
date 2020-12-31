@@ -11,7 +11,7 @@ export class UsersComponent implements OnInit {
  count: number; 
  pageSize: number;
 // tableSizes = [3, 6, 9, 12];
-userData:any;
+userData:any[];
   constructor() {
     this.userData=[{
       "firstName": "Rack",

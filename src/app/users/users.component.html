@@ -27,6 +27,7 @@
                     <tbody>
                         <tr *ngFor="let user of userData | slice: (page-1) * pageSize : page * pageSize
                         let i = index">
+                            <!-- {{user | json}} -->
                             <th scope="row">{{user.firstName}}</th>
                             <td>{{user.lastName}}</td>
                             <td>{{user.gender}}</td>
