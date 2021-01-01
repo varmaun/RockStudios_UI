@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrganizationComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  currentPage=1;
+  page: number;
+  count: number; 
+  pageSize: number;
+  organizationList:any[];
+   constructor() {
+     this.organizationList=[{
+       "organizationName": "RockStudios",
+       "phoneNo": "9393953534",
+       "email":"varma.179@gmail.com",
+       "status": "Active"
+     }
+     ];
+     this.page=1;
+     this.pageSize=1;
+     this.count=0;
+    }
+ 
+   ngOnInit(): void {
+   }
+  
+   pageChanged(event: any): void {
+     this.page = event.page;
+   }
 }

@@ -1,1 +1,42 @@
-<p>courses works!</p>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTables Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 row" style="margin: 0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Course List</h6>
+            <div class="col-md-6 text-right" ><button>Add Course</button></div>
+        </div>
+        
+    
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Course Image</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let course of courseList | slice: (page-1) * pageSize : page * pageSize
+                        let i = index">
+                            <!-- {{course | json}} -->
+                            <th scope="row">{{course.courseName}}</th>
+                            <td>{{course.courseImg}}</td>
+                            <td>{{course.status}}</td>
+                            <td><button> 
+                                View
+                            </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="courseList.length"></ngb-pagination>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
