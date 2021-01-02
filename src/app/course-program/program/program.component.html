@@ -1,1 +1,46 @@
-<p>program works!</p>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTables Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 row" style="margin: 0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Program List</h6>
+            <div class="col-md-6 text-right" ><button>Add Program</button></div>
+        </div>
+        
+    
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Program Name</th>
+                            <th>Program Duration</th>
+                            <th>Days</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let program of programList | slice: (page-1) * pageSize : page * pageSize
+                        let i = index">
+                            <!-- {{program | json}} -->
+                            <th scope="row">{{program.programName}}</th>
+                            <td>{{program.duration}}</td>
+                            <td>{{program.days}}</td>
+                            <td>{{program.description}}</td>
+                            <td>{{program.status}}</td>
+                            <td><button> 
+                                View
+                            </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="programList.length"></ngb-pagination>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

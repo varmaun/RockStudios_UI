@@ -10,7 +10,6 @@ export class UsersComponent implements OnInit {
  page: number;
  count: number; 
  pageSize: number;
-// tableSizes = [3, 6, 9, 12];
 userData:any[];
   constructor() {
     this.userData=[{

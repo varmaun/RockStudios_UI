@@ -1,1 +1,40 @@
-<p>grades works!</p>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTables Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 row" style="margin: 0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Grade List</h6>
+            <div class="col-md-6 text-right" ><button>Add Grade</button></div>
+        </div>
+        
+    
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Grade Name</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let grade of gradeList | slice: (page-1) * pageSize : page * pageSize
+                        let i = index">
+                            <!-- {{grade | json}} -->
+                            <th scope="row">{{grade.name}}</th>
+                            <td>{{grade.status}}</td>
+                            <td><button> 
+                                View
+                            </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="gradeList.length"></ngb-pagination>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

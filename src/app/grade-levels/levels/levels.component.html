@@ -1,1 +1,40 @@
-<p>levels works!</p>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTables Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 row" style="margin: 0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Level List</h6>
+            <div class="col-md-6 text-right" ><button>Add Level</button></div>
+        </div>
+        
+    
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Level Name</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let level of levelList | slice: (page-1) * pageSize : page * pageSize
+                        let i = index">
+                            <!-- {{level | json}} -->
+                            <th scope="row">{{level.levelName}}</th>
+                            <td>{{level.status}}</td>
+                            <td><button> 
+                                View
+                            </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="levelList.length"></ngb-pagination>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

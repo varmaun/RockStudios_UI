@@ -1,1 +1,44 @@
-<p>organization works!</p>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <!-- DataTables Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 row" style="margin: 0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Organization Details</h6>
+            <div class="col-md-6 text-right" ><button>Add Organization</button></div>
+        </div>
+        
+    
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Organization Name</th>
+                            <th>Phone No</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let org of organizationList | slice: (page-1) * pageSize : page * pageSize
+                        let i = index">
+                            <!-- {{course | json}} -->
+                            <th scope="row">{{org.organizationName}}</th>
+                            <td>{{org.phoneNo}}</td>
+                            <td>{{org.email}}</td>
+                            <td>{{org.status}}</td>
+                            <td><button> 
+                                View
+                            </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="organizationList.length"></ngb-pagination>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
