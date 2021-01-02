@@ -4,8 +4,11 @@
    
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Student Details</h6>
+        <div class="card-header py-3 row" style="margin:0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Student Details</h6>
+            <div class="col-md-6 text-right" >
+              <button>ADD USER</button>
+            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -20,6 +23,7 @@
                             <th>City</th>
                             <th> State</th>
                             <th>PostalCode</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +38,7 @@
                             <td>{{user.city}}</td>
                             <td>{{user.state}}</td>
                             <td>{{user.postalCode}}</td>
+                            <td><button>VIEW</button></td>
                         </tr>
                     </tbody>
                 </table>
