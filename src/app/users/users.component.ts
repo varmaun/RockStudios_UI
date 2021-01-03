@@ -10,6 +10,7 @@ export class UsersComponent implements OnInit {
  page: number;
  count: number; 
  pageSize: number;
+ userAdd: boolean;
 userData:any[];
   constructor() {
     this.userData=[{
@@ -56,6 +57,7 @@ userData:any[];
     this.page=1;
     this.pageSize=2;
     this.count=0;
+    this.userAdd = false;
    }
 
   ngOnInit(): void {
@@ -63,5 +65,14 @@ userData:any[];
  
   pageChanged(event: any): void {
     this.page = event.page;
+  }
+
+  adduser(){
+    if(this.userAdd){
+      this.userAdd = false;
+    } else {
+      this.userAdd = true;
+    }
+    
   }
 }
