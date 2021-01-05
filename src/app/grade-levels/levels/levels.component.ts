@@ -10,6 +10,7 @@ export class LevelsComponent implements OnInit {
   page: number;
   count: number; 
   pageSize: number;
+  levelAdd: boolean;
   levelList:any[];
    constructor() {
      this.levelList=[{
@@ -36,6 +37,7 @@ export class LevelsComponent implements OnInit {
      this.page=1;
      this.pageSize=5;
      this.count=0;
+     this.levelAdd=false;
     }
  
    ngOnInit(): void {
@@ -45,4 +47,12 @@ export class LevelsComponent implements OnInit {
      this.page = event.page;
    }
 
+   addlevel(){
+    if(this.levelAdd){
+      this.levelAdd = false;
+    } else {
+      this.levelAdd = true;
+    }
+    
+  }
 }

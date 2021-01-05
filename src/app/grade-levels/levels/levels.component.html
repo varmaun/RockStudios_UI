@@ -2,10 +2,12 @@
 
     <!-- Page Heading -->
     <!-- DataTables Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4" *ngIf="!levelAdd">
         <div class="card-header py-3 row" style="margin: 0px;">
             <h6 class="col-md-6 m-0 font-weight-bold text-primary">Level List</h6>
-            <div class="col-md-6 text-right" ><button>Add Level</button></div>
+            <div class="col-md-6 text-right" >
+                <button class="btn btn-success btn-sm" (click)="addlevel()">Add Level</button>
+            </div>
         </div>
         
     
@@ -25,7 +27,7 @@
                             <!-- {{level | json}} -->
                             <th scope="row">{{level.levelName}}</th>
                             <td>{{level.status}}</td>
-                            <td><button> 
+                            <td><button class="btn btn-primary btn-sm"> 
                                 View
                             </button> </td>
                         </tr>
@@ -33,6 +35,24 @@
                 </table>
                 <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="levelList.length"></ngb-pagination>
             </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4" *ngIf="levelAdd">
+        <div class="card-header py-3 row" style="margin:0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Add Level</h6>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-success btn-sm" (click)="addlevel()">Back</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="inputAddress">Level Name</label>
+                    <input type="text" class="form-control" placeholder="Level Name">
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
         </div>
     </div>
 

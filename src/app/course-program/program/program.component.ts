@@ -10,6 +10,7 @@ export class ProgramComponent implements OnInit {
   page: number;
   count: number; 
   pageSize: number;
+  programAdd: boolean;
   programList:any[];
    constructor() {
      this.programList=[{
@@ -58,6 +59,7 @@ export class ProgramComponent implements OnInit {
      this.page=1;
      this.pageSize=5;
      this.count=0;
+     this.programAdd=false;
     }
  
    ngOnInit(): void {
@@ -66,5 +68,14 @@ export class ProgramComponent implements OnInit {
    pageChanged(event: any): void {
      this.page = event.page;
    }
+
+   addprogram(){
+    if(this.programAdd){
+      this.programAdd = false;
+    } else {
+      this.programAdd = true;
+    }
+    
+  }
 
 }

@@ -2,10 +2,12 @@
 
     <!-- Page Heading -->
     <!-- DataTables Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4" *ngIf="!programAdd">
         <div class="card-header py-3 row" style="margin: 0px;">
             <h6 class="col-md-6 m-0 font-weight-bold text-primary">Program List</h6>
-            <div class="col-md-6 text-right" ><button>Add Program</button></div>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-success btn-sm" (click)="addprogram()">Add Program</button>
+            </div>
         </div>
         
     
@@ -31,7 +33,7 @@
                             <td>{{program.days}}</td>
                             <td>{{program.description}}</td>
                             <td>{{program.status}}</td>
-                            <td><button> 
+                            <td><button class="btn btn-primary btn-sm"> 
                                 View
                             </button> </td>
                         </tr>
@@ -39,6 +41,44 @@
                 </table>
                 <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="programList.length"></ngb-pagination>
             </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4" *ngIf="programAdd">
+        <div class="card-header py-3 row" style="margin:0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Add Program</h6>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-success btn-sm" (click)="addprogram()">Back</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                
+                <div class="form-group">
+                    <label for="inputState">Course Name</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose Course...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputState">Program Name</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose Program...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Duration</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Duration">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Course Fee</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Couse Fee">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
         </div>
     </div>
 

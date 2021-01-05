@@ -2,10 +2,11 @@
 
     <!-- Page Heading -->
     <!-- DataTables Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4" *ngIf="!gradeAdd">
         <div class="card-header py-3 row" style="margin: 0px;">
             <h6 class="col-md-6 m-0 font-weight-bold text-primary">Grade List</h6>
-            <div class="col-md-6 text-right" ><button>Add Grade</button></div>
+            <div class="col-md-6 text-right" >
+                <button class="btn btn-success btn-sm" (click)="addgrade()">Add Grade</button></div>
         </div>
         
     
@@ -25,7 +26,7 @@
                             <!-- {{grade | json}} -->
                             <th scope="row">{{grade.name}}</th>
                             <td>{{grade.status}}</td>
-                            <td><button> 
+                            <td><button class="btn btn-primary btn-sm"> 
                                 View
                             </button> </td>
                         </tr>
@@ -33,6 +34,33 @@
                 </table>
                 <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="gradeList.length"></ngb-pagination>
             </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4" *ngIf="gradeAdd">
+        <div class="card-header py-3 row" style="margin:0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Add Grade</h6>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-success btn-sm" (click)="addgrade()">Back</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                
+                <div class="form-group">
+                    <label for="inputState">Grade Name</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Grade Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputState">Level Name</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose Level...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
         </div>
     </div>
 

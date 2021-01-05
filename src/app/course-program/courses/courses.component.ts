@@ -10,6 +10,7 @@ export class CoursesComponent implements OnInit {
   page: number;
   count: number; 
   pageSize: number;
+  courseAdd: boolean;
  courseList:any[];
    constructor() {
      this.courseList=[{
@@ -41,6 +42,7 @@ export class CoursesComponent implements OnInit {
      this.page=1;
      this.pageSize=5;
      this.count=0;
+     this.courseAdd = false;
     }
  
    ngOnInit(): void {
@@ -49,4 +51,13 @@ export class CoursesComponent implements OnInit {
    pageChanged(event: any): void {
      this.page = event.page;
    }
+
+   addcourse(){
+    if(this.courseAdd){
+      this.courseAdd = false;
+    } else {
+      this.courseAdd = true;
+    }
+    
+  }
 }
