@@ -56,51 +56,72 @@
             </div>
         </div>
         <div class="card-body">
-            <form>
+            <form [formGroup]="userForm" (ngSubmit)="onSubmitUser()" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        <label for="inputEmail4">Name</label>
+                        <input type="test" formControlName="name" name="name" class="form-control" placeholder="Name">
+                        <div *ngIf="submitted && f.name.errors">
+                            <div style="color: red;" *ngIf="f.name.errors.required">Name is required</div>
+                        </div>
+
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" formControlName="email" name="email" class="form-control" placeholder="Email">
+                        <div *ngIf="submitted && f.email.errors">
+                            <div style="color: red;" *ngIf="f.email.errors.required">Email is required</div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    <input type="text" formControlName="address" name="address" class="form-control" placeholder="1234 Main St">
+                    <div *ngIf="submitted && f.address.errors">
+                        <div style="color: red;" *ngIf="f.address.errors.required">Address is required</div>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <input type="text" formControlName="address1" name="address1" class="form-control" placeholder="Apartment, studio, or floor">
+                    <div *ngIf="submitted && f.address1.errors">
+                        <div style="color: red;" *ngIf="f.address1.errors.required">Address 2 is required</div>
+                    </div>
+
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <input type="text" formControlName="city" name="city" class="form-control">
+                        <div *ngIf="submitted && f.city.errors">
+                            <div style="color: red;" *ngIf="f.city.errors.required">city is required</div>
+                        </div>
+
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
+                        <select formControlName="state" name="state" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                        </select>
+                        <div *ngIf="submitted && f.state.errors">
+                            <div style="color: red;" *ngIf="f.state.errors.required">city is required</div>
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
+                        <input type="text" formControlName="zip" name="zip" class="form-control">
+                        <div *ngIf="submitted && f.zip.errors">
+                            <div style="color: red;" *ngIf="f.zip.errors.required">city is required</div>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Sign in</button>
+                <div class="col-md-6">
+                    <pre style="padding: 20px;background: #ccc;margin: 10px;">{{this.userForm.value | json}}</pre>
+                </div>
             </form>
         </div>
     </div>

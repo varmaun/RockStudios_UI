@@ -19,6 +19,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {NgbPaginationModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {NgbPaginationModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     PaginationModule.forRoot(),
     NgbPaginationModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

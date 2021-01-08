@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-users',
@@ -11,8 +13,12 @@ export class UsersComponent implements OnInit {
  count: number; 
  pageSize: number;
  userAdd: boolean;
-userData:any[];
-  constructor() {
+ userForm: FormGroup;
+ userData:any[];
+ submitted: boolean;
+  constructor(
+    private _formBuilder: FormBuilder
+  ) {
     this.userData=[{
       "firstName": "Rack",
       "lastName": "Jackon",
@@ -58,10 +64,24 @@ userData:any[];
     this.pageSize=2;
     this.count=0;
     this.userAdd = false;
+    this.userForm = this._formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      address1: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zip: ['', Validators.required]
+    });
+    this.submitted = false;
    }
 
   ngOnInit(): void {
+    
   }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.userForm.controls; }
  
   pageChanged(event: any): void {
     this.page = event.page;
@@ -74,5 +94,10 @@ userData:any[];
       this.userAdd = true;
     }
     
+  }
+
+  onSubmitUser(){
+    this.submitted = true;
+    console.log(this.userForm);
   }
 }
