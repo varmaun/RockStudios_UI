@@ -2,10 +2,12 @@
 
     <!-- Page Heading -->
     <!-- DataTables Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4" *ngIf="!batchAdd">
         <div class="card-header py-3 row" style="margin: 0px;">
             <h6 class="col-md-6 m-0 font-weight-bold text-primary">Batch List</h6>
-            <div class="col-md-6 text-right" ><button>Add Batch</button></div>
+            <div class="col-md-6 text-right" >
+                <button class="btn btn-success btn-sm" (click)="addbatch()">Add Batch</button>
+            </div>
         </div>
         
     
@@ -27,7 +29,7 @@
                             <th scope="row">{{batch.batchName}}</th>
                             <td>{{batch.batchTimings}}</td>
                             <td>{{batch.status}}</td>
-                            <td><button> 
+                            <td><button class="btn btn-primary btn-sm"> 
                                 View
                             </button> </td>
                         </tr>
@@ -35,6 +37,31 @@
                 </table>
                 <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="batchList.length"></ngb-pagination>
             </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4" *ngIf="batchAdd">
+        <div class="card-header py-3 row" style="margin:0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Add Batch</h6>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-success btn-sm" (click)="addbatch()">Back</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="inputAddress">Batch Name</label>
+                    <input type="text" class="form-control" placeholder="Batch Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputState">Batch timings</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose Timings...</option>
+                        <option>6PM - 10PM</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
         </div>
     </div>
 

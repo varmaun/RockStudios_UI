@@ -11,6 +11,7 @@ export class GradesComponent implements OnInit {
   page: number;
   count: number; 
   pageSize: number;
+  gradeAdd: boolean;
   gradeList:any[];
    constructor() {
      this.gradeList=[{
@@ -37,6 +38,7 @@ export class GradesComponent implements OnInit {
      this.page=1;
      this.pageSize=5;
      this.count=0;
+     this.gradeAdd=false;
     }
  
    ngOnInit(): void {
@@ -46,5 +48,13 @@ export class GradesComponent implements OnInit {
      this.page = event.page;
    }
 
+   addgrade(){
+    if(this.gradeAdd){
+      this.gradeAdd = false;
+    } else {
+      this.gradeAdd = true;
+    }
+    
+  }
 
 }

@@ -2,10 +2,12 @@
 
     <!-- Page Heading -->
     <!-- DataTables Example -->
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4" *ngIf="!courseAdd">
         <div class="card-header py-3 row" style="margin: 0px;">
             <h6 class="col-md-6 m-0 font-weight-bold text-primary">Course List</h6>
-            <div class="col-md-6 text-right" ><button>Add Course</button></div>
+            <div class="col-md-6 text-right" >
+                <button class="btn btn-success btn-sm" (click)="addcourse()">Add Course</button>
+            </div>
         </div>
         
     
@@ -27,9 +29,7 @@
                             <th scope="row">{{course.courseName}}</th>
                             <td>{{course.courseImg}}</td>
                             <td>{{course.status}}</td>
-                            <td><button> 
-                                View
-                            </button> </td>
+                            <td><button class="btn btn-primary btn-sm"> View</button> </td>
                         </tr>
                     </tbody>
                 </table>
@@ -37,6 +37,33 @@
             </div>
         </div>
     </div>
+
+
+
+    <div class="card shadow mb-4" *ngIf="courseAdd">
+        <div class="card-header py-3 row" style="margin:0px;">
+            <h6 class="col-md-6 m-0 font-weight-bold text-primary">Add Course</h6>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-success btn-sm" (click)="addcourse()">Back</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="inputAddress">Course Name</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Course Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Course Img</label>
+                    <input type="file" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+
 
 </div>
 <!-- /.container-fluid -->

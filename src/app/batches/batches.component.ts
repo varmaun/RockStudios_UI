@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./batches.component.css']
 })
 export class BatchesComponent implements OnInit {
-
   currentPage=1;
   page: number;
   count: number; 
   pageSize: number;
+  batchAdd: boolean;
   batchList:any[];
    constructor() {
      this.batchList=[{
@@ -38,6 +38,7 @@ export class BatchesComponent implements OnInit {
      this.page=1;
      this.pageSize=5;
      this.count=0;
+     this.batchAdd=false;
     }
  
    ngOnInit(): void {
@@ -47,5 +48,13 @@ export class BatchesComponent implements OnInit {
      this.page = event.page;
    }
 
+   addbatch(){
+    if(this.batchAdd){
+      this.batchAdd = false;
+    } else {
+      this.batchAdd = true;
+    }
+    
+  }
 
 }

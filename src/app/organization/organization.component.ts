@@ -11,6 +11,7 @@ export class OrganizationComponent implements OnInit {
   page: number;
   count: number; 
   pageSize: number;
+  organizationAdd: boolean;
   organizationList:any[];
    constructor() {
      this.organizationList=[{
@@ -23,6 +24,7 @@ export class OrganizationComponent implements OnInit {
      this.page=1;
      this.pageSize=1;
      this.count=0;
+     this.organizationAdd = false;
     }
  
    ngOnInit(): void {
@@ -31,4 +33,14 @@ export class OrganizationComponent implements OnInit {
    pageChanged(event: any): void {
      this.page = event.page;
    }
+
+   addorganization(){
+    if(this.organizationAdd){
+      this.organizationAdd = false;
+    } else {
+      this.organizationAdd = true;
+    }
+    
+  }
+
 }
